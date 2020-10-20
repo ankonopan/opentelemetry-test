@@ -81,3 +81,15 @@ services:
       - ./prometheus.yaml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
+
+  orders:
+    container_name: orders_service
+    tty: true
+    stdin_open: true
+    build:
+      context: ./orders
+    command: bundle exec rackup -p 3000
+    ports:
+      - '3000:3000'
+
+
