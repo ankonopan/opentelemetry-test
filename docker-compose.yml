@@ -88,7 +88,9 @@ services:
     stdin_open: true
     build:
       context: ./orders
-    command: bundle exec rackup -p 3000
+    command: bundle exec rackup -p 3000 --host 0.0.0.0
+    volumes:
+      - ./orders:/orders
     ports:
       - '3000:3000'
 
